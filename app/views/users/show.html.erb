@@ -1,1 +1,9 @@
-<%= @user.username %>
+<h1>User: <%= @user.username %></h1>
+<h2>Topics:</h2>
+<ul>
+    <% @user.topics.each do |topic| %>
+        <li>
+            <%= link_to topic.name, topic_path(topic) %>
+        </li>
+    <% end %>
+</ul>
