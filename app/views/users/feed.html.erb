@@ -1,0 +1,7 @@
+<% @user.topics.each do |f| %>
+    <h1><%= f.name %></h1>
+    <% f.posts.each do |p| %>
+        <%= p.title %><br>
+        <%= p.content %><br>
+    <% end %>
+<% end %>
