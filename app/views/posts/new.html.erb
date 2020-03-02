@@ -5,5 +5,7 @@
     <%= f.label "Post Content" %>
     <%= f.text_field :content %><br>
 
+    <%= f.collection_select(:user_id, User.all, :id, :username) %>
+
     <%= f.submit %>
 <% end %>
