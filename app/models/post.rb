@@ -5,7 +5,6 @@ class Post < ApplicationRecord
   belongs_to :user
 
   validates :user, presence: true
-  validates :title, presence: true, length: { max: 150 }
-  validates :content, presence: true, length: { max: 5000 }
-
+  validates :title, presence: true, length: { maximum: 150 }
+  validates :content, presence: true, length: { maximum: 5000 }
 end

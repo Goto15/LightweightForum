@@ -1,0 +1,5 @@
+<% @posts.each do |post| %>
+    <%= link_to post.title, post_path(post) %>
+    <%= post.content %>
+    <%= post.user.username %>
+<% end %>
