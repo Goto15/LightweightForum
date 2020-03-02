@@ -14,7 +14,7 @@
   <%= f.label :username %>
   <%= f.text_field :username %><br>
 
-  <%= f.label 'Add to User:' %>
+  <%= f.label 'Add topics to User:' %>
   <%= f.collection_check_boxes(:topic_ids, Topic.all, :id, :name)%><br>
 
   <%= f.submit %>
