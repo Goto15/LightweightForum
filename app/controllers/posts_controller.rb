@@ -6,6 +6,9 @@ class PostsController < ApplicationController
 
     def show
         @post = find_post
+        @topics = @post.topics.compact
+        @comments = @post.comments.compact
+        @comment = @post.comments.build
     end
 
     def new

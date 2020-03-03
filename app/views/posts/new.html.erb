@@ -3,7 +3,7 @@
     <h1><%= f.text_field :title %></h1>
 
     <h1><%= f.label "Post Content" %></h1>
-    <h1><%= f.text_field :content%></h1>
+    <h1><%= f.text_area :content%></h1>
 
     <h1><%= f.label "Username"%></h1>
     <h1><%= f.collection_select(:user_id, User.all, :id, :username) %></h1>

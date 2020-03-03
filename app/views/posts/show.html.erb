@@ -2,13 +2,26 @@
 <div class='author'><%= @post.user.username %></div>
 <div class='content'><%= @post.content %></div>
 <div class='topics'>
-    <% @post.topics.each do |t| %>
+    <% @topics.each do |t| %>
         <%= link_to t.name, topic_path(t) %>
     <% end %>
 </div>
+<hr style='margin-bottom: 25px;'>
+<div class='topics' style='margin-bottom: 25px;'>Comments</div>
 <div class='content'>
-    <% @post.comments.each do |c| %>
+    <% @comments.each do |c| %>
         <%= c.content %>
-        <span class='author'><%= c.user.username %></span>
+        <div class='author'><%= c.user.username %></div>
     <% end %>
+    <hr>
 </div>
+<%= form_for @comment do |c| %>
+    <%= c.label 'Comment here: ' %>
+    <%= c.text_area :content %>
+    <br>
+    <%= c.label 'Username: '%>
+    <%= c.collection_select(:user_id, User.all, :id, :username) %>
+    <br>
+    <%= c.hidden_field(:post_id, value: @post.id)%>
+    <%= c.submit %>
+<% end %>
