@@ -9,3 +9,13 @@
     </div>
     <hr>
 <% end %>
+
+
+<% @user.topics.each do |t| %>
+    <h2><i><%= link_to t.name, topic_path(t) %></i></h2>
+    <%t.posts.each do |p| %>
+        <%= link_to p.title, post_path(p) %>
+        <h3 class='author'><%= p.user.username %></h3>
+        <div class='content'><%= p.content %></div>
+    <% end %>
+<% end %>

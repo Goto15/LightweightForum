@@ -8,5 +8,8 @@
     <h1><%= f.label "Username"%></h1>
     <h1><%= f.collection_select(:user_id, User.all, :id, :username) %></h1>
 
+    <h1><%= f.label 'Add topics to Post:' %></h1>
+    <div class='topics'><%= f.collection_check_boxes(:topic_ids, Topic.all, :id, :name)%></div>
+
     <h1><%= f.submit %></h1>
 <% end %>
