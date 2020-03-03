@@ -11,12 +11,12 @@
       </div>
   <% end %>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %><br>
+  <h1><%= f.label :username %></h1>
+  <h1><%= f.text_field :username %></h1>
 
-  <%= f.label 'Add topics to User:' %>
-  <%= f.collection_check_boxes(:topic_ids, Topic.all, :id, :name)%><br>
+  <h1><%= f.label 'Add topics to User Feed:' %></h1>
+  <div class='topics'><%= f.collection_check_boxes(:topic_ids, Topic.all, :id, :name)%></div>
 
-  <%= f.submit %>
+  <h1><%= f.submit %></h1>
 
 <% end %>

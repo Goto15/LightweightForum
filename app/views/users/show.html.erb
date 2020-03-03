@@ -1,9 +1,11 @@
-<h1>User: <%= @user.username %></h1>
-<h2>Topics:</h2>
+<h1><%= @user.username %></h1>
+<div class='topics'>Topics:</div>
 <ul>
+    <div class='topics'>
     <% @user.topics.each do |topic| %>
         <li>
             <%= link_to topic.name, topic_path(topic) %>
         </li>
     <% end %>
+    </div>
 </ul>

@@ -49,5 +49,4 @@ class UsersController < ApplicationController
         params.require(:user).permit(:username, topic_ids: [])
     end
 
-
 end

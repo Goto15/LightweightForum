@@ -1,3 +1,8 @@
-<%= @post.title %><br>
-<%= @post.content %><br>
-<%= @post.user.username %>
+<h1><%= @post.title %></h1>
+<div class='author'><%= @post.user.username %></div>
+<div class='content'><%= @post.content %></div>
+<div class='topics'>
+    <% @post.topics.each do |t| %>
+        <%= link_to t.name, topic_path(t) %>
+    <% end %>
+</div>
