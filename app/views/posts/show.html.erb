@@ -6,3 +6,9 @@
         <%= link_to t.name, topic_path(t) %>
     <% end %>
 </div>
+<div class='content'>
+    <% @post.comments.each do |c| %>
+        <%= c.content %>
+        <span class='author'><%= c.user.username %></span>
+    <% end %>
+</div>
