@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     end
 
     def upvote_post
-        @post = Post.find(params[:id])
+        @post = find_post
         @post.update(upvotes: @post.upvotes + 1)
         redirect_to post_path(@post)
     end
