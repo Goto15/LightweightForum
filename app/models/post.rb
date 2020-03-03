@@ -7,4 +7,10 @@ class Post < ApplicationRecord
   validates :user, presence: true
   validates :title, presence: true, length: { maximum: 150 }
   validates :content, presence: true, length: { maximum: 5000 }
+
+  after_initialize :init
+
+  def init
+    self.upvotes ||= 0
+  end
 end

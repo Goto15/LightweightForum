@@ -16,7 +16,6 @@
 
   <h1><%= f.label 'Add topics to User:' %></h1>
   <div class='topics'><%= f.collection_check_boxes(:topic_ids, Topic.all, :id, :name)%></div>
-
   <h1><%= f.submit %></h1>
 
 <% end %>

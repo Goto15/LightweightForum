@@ -11,6 +11,12 @@ class PostsController < ApplicationController
         @comment = @post.comments.build
     end
 
+    def upvote_post
+        @post = Post.find(params[:id])
+        @post.update(upvotes: @post.upvotes + 1)
+        redirect_to post_path(@post)
+    end
+
     def new
         @post = Post.new
     end
@@ -44,6 +50,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:post).permit(:title, :content, :user_id)
+        params.require(:post).permit(:title, :content, :upvotes, :user_id)
     end
 end

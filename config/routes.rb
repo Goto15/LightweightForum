@@ -6,4 +6,7 @@ Rails.application.routes.draw do
 
   get '/users/:id/feed', to: 'users#feed', as: 'user_feed'
   get '/', to: 'posts#index', as: 'home'
+  put '/comments/:id/upvote_comment', to: 'comments#upvote_comment', as: 'upvote_comment'
+  put '/comments/:id/upvote_post', to: 'comments#upvote_post', as: 'upvote_post'
+
 end

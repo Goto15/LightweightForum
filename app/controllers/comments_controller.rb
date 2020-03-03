@@ -10,9 +10,15 @@ class CommentsController < ApplicationController
         end
     end
 
+    def upvote_comment
+        @comment = Comment.find(params[:id])
+        @comment.update(upvotes: @comment.upvotes + 1)
+        redirect_to post_path(@comment.post)
+    end
+
     private
 
     def comment_params
-        params.require(:comment).permit(:content, :user_id, :post_id)
+        params.require(:comment).permit(:upvotes, :content, :user_id, :post_id)
     end
 end
