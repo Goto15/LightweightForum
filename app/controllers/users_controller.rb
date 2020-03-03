@@ -37,7 +37,6 @@ class UsersController < ApplicationController
 
     def feed
         @user = find_user
-        
     end
 
     private

@@ -1,7 +1,11 @@
-<% @user.topics.each do |f| %>
-    <h1><%= f.name %></h1>
-    <% f.posts.each do |p| %>
-        <%= p.title %><br>
-        <%= p.content %><br>
+<% @user.posts.each do |p| %>
+    <h1><%= p.title %><br></h1>
+    <div class='author'><%= p.user.username %></div>
+    <div class='content'><%= p.content %></div>
+    <div class='topics'>
+    <% p.topics.each do |t| %>
+        <i><%= link_to t.name, topic_path(t) %></i>
     <% end %>
+    </div>
+    <hr>
 <% end %>
