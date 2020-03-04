@@ -6,7 +6,6 @@ class TopicsController < ApplicationController
 
     def show
         @topic = find_topic
-        @posts = @topics.posts
     end
 
     private
