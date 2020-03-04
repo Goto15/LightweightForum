@@ -1,9 +1,20 @@
-<%= form_for @post do |f| %>
-    <div class='title'><%= f.label "Post Title" %></div>
-    <%= f.text_field :title %>
-    <br>
-    <%= f.label "Post Content" %>
-    <%= f.text_field :content %>
-    <br>
-    <%= f.submit %>
+<% if logged_in? && (@post.user_id == session[:user_id]) %>
+    <%= form_for @post do |f| %>
+        <div><h1><%= f.label "Post Title" %></h1></div>
+        <h1><%= f.text_field :title %></h1>
+        <br>
+        <div class='topics'>
+            <div><%= f.label "Post Content" %></div>
+            <div><%= f.text_area :content %></div>
+        </div>
+        <br>
+        <%= f.submit %>
+    <% end %>
+<% else %>
+    <div>
+        <h1>Denied Access</h1>
+    </div>
+    <div class='topics'>
+        <%= link_to "Back to post", post_path(@post) %>
+    </div>
 <% end %>

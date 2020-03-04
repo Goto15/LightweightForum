@@ -1,12 +1,14 @@
-<%= form_for @post do |f| %>
-    <h1><%= f.label "Post Title" %></h1>
-    <h1><%= f.text_field :title %></h1>
+<% if logged_in? %>
+    <%= form_for @post do |f| %>
+        <h1><%= f.label "Post Title" %></h1>
+        <h1><%= f.text_field :title %></h1>
 
-    <h1><%= f.label "Post Content" %></h1>
-    <h1><%= f.text_area :content%></h1>
+        <h1><%= f.label "Post Content" %></h1>
+        <h1><%= f.text_area :content%></h1>
 
-    <h1><%= f.label "Username"%></h1>
-    <h1><%= f.collection_select(:user_id, User.all, :id, :username) %></h1>
+        <%= f.hidden_field(:user_id, value: session[:user_id]) %>
+        <%= f.hidden_field(:upvotes, value: 0) %>
 
-    <h1><%= f.submit %></h1>
+        <h1><%= f.submit %></h1>
+    <% end %>
 <% end %>
