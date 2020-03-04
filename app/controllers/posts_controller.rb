@@ -11,12 +11,12 @@ class PostsController < ApplicationController
         @comment = @post.comments.build
     end
 
-    def upvote_post
-        @post = find_post
-        @post.upvote
-        @post.save
-        redirect_to post_path(@post)
-    end
+    # def upvote_post
+    #     @post = find_post
+    #     @post.upvote
+    #     @post.save
+    #     redirect_to post_path(@post)
+    # end
 
     def new
         @post = Post.new
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
-
+        
         if @post.valid?
             @post.save
             redirect_to post_path(@post)

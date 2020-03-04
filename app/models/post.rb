@@ -15,8 +15,8 @@ class Post < ApplicationRecord
     self.upvotes ||= 0
   end
 
-  def upvote
-    self.upvotes += 1
+  def vote_score
+   (Vote.select{ |vote| vote.post_id == self.id && vote.opinion == 'up' }.count - Vote.select{ |vote| vote.post_id == self.id && vote.opinion == 'down' }.count).to_i
   end
 
 end

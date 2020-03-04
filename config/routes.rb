@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :votes
   resources :posts, only: [:index, :new, :show, :create, :edit, :update]
   resources :topics, only: [:index, :show]
   resources :users, only: [:show, :new, :create, :edit, :update]
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   delete '/sessions', to: 'sessions#destroy'
 
-  put '/comments/:id/upvote_comment', to: 'comments#upvote_comment', as: 'upvote_comment'
-  put '/posts/:id/upvote_post', to: 'posts#upvote_post', as: 'upvote_post'
+  put '/comments/:id/upvote_comment', to: 'votes#upvote_comment', as: 'upvote_comment'
+  put '/posts/:id/upvote_post', to: 'votes#upvote_post', as: 'upvote_post'
+  
 end

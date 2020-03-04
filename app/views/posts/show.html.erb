@@ -6,7 +6,7 @@
 
 
 <div class="topics">
-    Upvotes: <%= @post.upvotes %>
+    Upvotes: <%= @post.vote_score %>
     <% if logged_in? %>
         <%= button_to 'Upvote', upvote_post_path(@post), method: :put %>
     <% end %>

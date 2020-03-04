@@ -11,12 +11,12 @@ class CommentsController < ApplicationController
         
     end
 
-    def upvote_comment
-        @comment = find_comment
-        @comment.upvote
-        @comment.save
-        redirect_to post_path(@comment.post)
-    end
+    # def upvote_comment
+    #     @comment = find_comment
+    #     @comment.upvote
+    #     @comment.save
+    #     redirect_to post_path(@comment.post)
+    # end
 
     private
 
