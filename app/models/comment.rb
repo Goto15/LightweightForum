@@ -11,4 +11,8 @@ class Comment < ApplicationRecord
   def init
     self.upvotes ||= 0
   end
+
+  def upvote 
+    self.upvotes += 1
+  end
 end

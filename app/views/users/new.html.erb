@@ -14,9 +14,14 @@
   <h1><%= f.label :username %></h1>
   <h1><%= f.text_field :username %></h1>
 
-  <h1><%= f.label 'Add topics to User Feed:' %></h1>
-  <div class='topics'><%= f.collection_check_boxes(:topic_ids, Topic.all, :id, :name)%></div>
+  <h1><%= f.label :password %></h1>
+  <h1><%= f.password_field :password, placeholder: "password" %></h1>
+  <br>
+  <h1><%= f.label :password_confirmation %></h1>
+  <h1><%= f.password_field :password_confirmation, placeholder: "confirm password" %></h1>
+  <br>
 
-  <h1><%= f.submit %></h1>
+
+  <h1><%= f.submit "create account" %></h1>
 
 <% end %>

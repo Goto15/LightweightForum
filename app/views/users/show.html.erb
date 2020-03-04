@@ -2,7 +2,7 @@
 <div class='topics'>Topics:</div>
 <ul>
     <div class='topics'>
-    <% @user.topics.each do |topic| %>
+    <% @topics.each do |topic| %>
         <li>
             <%= link_to topic.name, topic_path(topic) %>
         </li>
