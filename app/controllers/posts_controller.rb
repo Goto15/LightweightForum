@@ -12,8 +12,9 @@ class PostsController < ApplicationController
     end
 
     def upvote_post
-        @post = Post.find(params[:id])
-        @post.update(upvotes: @post.upvotes + 1)
+        @post = find_post
+        @post.upvote
+        @post.save
         redirect_to post_path(@post)
     end
 
@@ -32,7 +33,6 @@ class PostsController < ApplicationController
             @post.save
             redirect_to post_path(@post)
         else
-            puts @post.errors.full_messages
             redirect_to :action => "new"
         end
     end

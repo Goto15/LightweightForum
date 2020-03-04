@@ -1,14 +1,20 @@
 <h1><div class='site-name'>Lightweight Forum</div></h1>
-<div class='nav-bar'><%= link_to 'New Post', controller: 'posts', action: 'new'%> | <%= link_to 'Login', controller: 'users', action: 'new' %></div>
+<div class='nav-bar'><%= link_to 'New Post', controller: 'posts', action: 'new'%> | <%= link_to 'Login', login_path, method: :get %></div>
 <% @posts.each do |post| %>
     <h1><%= link_to post.title, post_path(post) %></h1>
-    <div class='author'><%= post.user.username %></div>
-    <div class='content'><%= post.content %><br></div>
+    <div class='author'>
+        <%= post.user.username %>
+    </div>
+    <div class='content'>
+        <%= post.content %><br>
+    </div>
     <div class='topics'>
         <% post.topics.each do |t| %>
             <i><%= link_to t.name, topic_path(t) %>
         <% end %>
     </div>
-    <div class='comments'><%= link_to 'Comments', post_path(post)%>
+    <div class='comments'>
+        <%= link_to 'Comments', post_path(post)%>
+    </div>
     <hr>
 <% end %>

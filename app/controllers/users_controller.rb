@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+    before_action :authorized, only: [:show]
+    
     def index
         @users = User.all 
     end
@@ -10,6 +11,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+
         if @user.valid?
             @user.save
             redirect_to @user
@@ -20,6 +22,7 @@ class UsersController < ApplicationController
 
     def show
         @user = find_user
+        @topics = @user.topics
     end
 
     def edit
@@ -27,16 +30,21 @@ class UsersController < ApplicationController
     end
 
     def update
-        @user = User.find(params[:id])
+        @user = find_user
         if @user.update(user_params)
-            redirect_to @user
+            redirect_to user_path(@user)
         else 
             render :edit
         end
     end
 
+    def login
+        @user = find_user
+    end
+
     def feed
         @user = find_user
+        @posts = @user.posts
     end
 
     private
@@ -46,7 +54,7 @@ class UsersController < ApplicationController
     end
     
     def user_params
-        params.require(:user).permit(:username, topic_ids: [])
+        params.require(:user).permit(:username, :password, :password_confirmation, topic_ids: [])
     end
 
 end

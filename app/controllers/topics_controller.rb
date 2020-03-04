@@ -5,6 +5,13 @@ class TopicsController < ApplicationController
     end
 
     def show
-        @topic = Topic.find(params[:id])
+        @topic = find_topic
+        @posts = @topics.posts
+    end
+
+    private
+
+    def find_topic
+        Topic.find(params[:id])
     end
 end

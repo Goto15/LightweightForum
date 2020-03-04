@@ -1,11 +1,15 @@
-<% @user.posts.each do |p| %>
-    <h1><%= p.title %><br></h1>
-    <div class='author'><%= p.user.username %></div>
-    <div class='content'><%= p.content %></div>
-    <div class='topics'>
-    <% p.topics.each do |t| %>
-        <i><%= link_to t.name, topic_path(t) %></i>
+<% if current_user == @user %>
+    <% @posts.each do |p| %>
+        <h1><%= p.title %><br></h1>
+        <div class='author'><%= p.user.username %></div>
+        <div class='content'><%= p.content %></div>
+        <div class='topics'>
+        <% p.topics.each do |t| %>
+            <i><%= link_to t.name, topic_path(t) %></i>
+        <% end %>
+        </div>
+        <hr>
     <% end %>
-    </div>
-    <hr>
+<% else %>
+    <% redirect_to user_feed_path(current_user) %>
 <% end %>
