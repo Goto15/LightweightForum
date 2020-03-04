@@ -1,15 +1,38 @@
 <h1><%= @post.title %></h1>
-<div class='author'><%= @post.user.username %></div>
-<div>Upvotes: <%= @post.upvotes %></div>
-<%= button_to 'Upvote', upvote_post_path(@post), method: :put %>
-<div class='content'><%= @post.content %></div>
+
+<div class='author'>
+    <%= @post.user.username %>
+</div>
+
+
+<div class="topics">
+    Upvotes: <%= @post.upvotes %>
+    <% if logged_in? %>
+        <%= button_to 'Upvote', upvote_post_path(@post), method: :put %>
+    <% end %>
+</div>
+
+<div class='content'>
+    <%= @post.content %>
+</div>
+
 <div class='topics'>
     <% @topics.each do |t| %>
         <%= link_to t.name, topic_path(t) %>
     <% end %>
 </div>
-<hr style='margin-bottom: 25px;'>
-<div class='topics' style='margin-bottom: 25px;'>Comments</div>
+
+<div class='content'>
+    <% if logged_in? && (@post.user_id == session[:user_id]) %>
+        <%= link_to "Edit your post", edit_post_path(@post) %>
+    <% end %>
+</div>
+<hr>
+
+<div class='topics'>
+    Comments
+</div>
+
 <div class='content'>
     <% @comments.each do |c| %>
         <%= c.content %><br>
@@ -17,15 +40,16 @@
         <%= button_to 'Upvote', upvote_comment_path(c), method: :put %>
         <div class='author'><%= c.user.username %></div>
     <% end %>
-    <hr>
 </div>
-<%= form_for @comment do |c| %>
-    <%= c.label 'Comment here: ' %>
-    <%= c.text_area :content %>
-    <br>
-    <%= c.label 'Username: '%>
-    <%= c.collection_select(:user_id, User.all, :id, :username) %>
-    <br>
-    <%= c.hidden_field(:post_id, value: @post.id)%>
-    <%= c.submit %>
+
+<hr>
+<% if logged_in? %>
+    <%= form_for @comment do |c| %>
+        <%= c.label 'Comment here: ' %>
+        <%= c.text_area :content %>
+        <br>
+        <%= c.hidden_field(:post_id, value: @post.id)%>
+        <%= c.hidden_field(:user_id, value: session[:user_id])%>
+        <%= c.submit %>
+    <% end %>
 <% end %>

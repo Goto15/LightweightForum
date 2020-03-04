@@ -34,6 +34,16 @@ h1 a:hover{
     text-align: justify;
 }
 
+.content a{
+    color: #232323;
+    text-decoration: underline;
+}
+
+.content a:hover{
+    background-color: #0073cf;
+    color: #fff;
+}
+
 .comments {
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
@@ -74,6 +84,7 @@ h1 a:hover{
     color: #0073cf;
     font-family: 'Courier New', Courier, monospace;
     font-style: italic;
+    margin-bottom: 25px;
     margin-top: 10px;
 }
 
