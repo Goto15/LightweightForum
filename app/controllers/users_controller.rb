@@ -45,7 +45,11 @@ class UsersController < ApplicationController
 
     def feed
         @user = find_user
-        @posts = @user.posts
+        if current_user == @user
+            @posts = @user.posts
+        else
+            redirect_to @user
+        end
     end
 
     private
