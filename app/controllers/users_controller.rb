@@ -31,10 +31,10 @@ class UsersController < ApplicationController
 
     def update
         @user = find_user
-        
+
         if @user.update(user_params)
-            redirect_to user_path(@user)
-        else 
+            redirect_to @user
+        else
             render :edit
         end
     end
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
         if current_user == @user
             @posts = @user.posts
         else
-            redirect_to @user
+            redirect_to login_path
         end
     end
 
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     def find_user
         User.find(params[:id])
     end
-    
+
     def user_params
         params.require(:user).permit(:username, :password, :password_confirmation, topic_ids: [])
     end
