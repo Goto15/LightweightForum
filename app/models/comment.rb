@@ -8,6 +8,14 @@ class Comment < ApplicationRecord
 
   after_initialize :init
 
+  def self.most_upvotes
+    Comment.all.max_by { |c| c.upvotes }
+  end 
+
+  def self.most_recent
+    Comment.last
+  end
+
   def init
     self.upvotes ||= 0
   end

@@ -8,4 +8,25 @@ class User < ApplicationRecord
     validates :password, presence: true
     validates :username, presence: true, uniqueness: true, length: { within:4..30 }
 
+    def self.most_comments
+        User.all.max_by { |u| u.comments.count }
+    end
+
+    def self.most_posts
+        User.all.max_by { |u| u.posts.count }
+    end
+
+    def self.most_topics_followed
+        User.all.max_by { |u| u.topics.count }
+    end
+
+    def self.newest
+        User.last
+    end
+
+    def self.oldest
+        User.first
+    end
+    
+
 end

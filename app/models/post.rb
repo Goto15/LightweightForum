@@ -35,6 +35,24 @@ class Post < ApplicationRecord
     end
   end
 
+  def self.most_upvotes
+    Post.all.max_by { |p| p.upvotes }
+  end
+
+  def self.most_comments
+    Post.all.max_by { |p| p.comments.count }
+  end
+
+  def self.longest_title
+    Post.all.max_by { |p| p.title.length }
+  end
+
+  def self.newest_post
+    Post.last
+  end
+
+
+
   # Instance Methods
   def init
     self.upvotes ||= 0
