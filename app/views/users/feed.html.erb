@@ -1,6 +1,13 @@
 <h1><%= "#{@user.username}'s Feed" %></h1>
+<div class='topics' style='text-align: right;'>
+    <%= form_for :sorting, url: 'feed' do |form| %>
+        <%= form.select :method, options_for_select(@sorts)%>
+        <%= form.submit %>
+    <% end %>
+</div>
 <% @posts.each do |p| %>
-    <h1><%= p.title %><br></h1>
+    <h1><%= link_to p.title, post_path(p) %><br></h1>
+    <div class='topics'><%= p.upvotes %></div>
     <div class='author'><%= p.user.username %></div>
     <div class='content'><%= p.content %></div>
     <div class='topics'>

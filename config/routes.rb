@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get '/', to: 'posts#index', as: 'home'
   get '/users/:id/feed', to: 'users#feed', as: 'user_feed'
+  post '/users/:id/feed', to: 'users#feed', as: 'sort_feed'
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'

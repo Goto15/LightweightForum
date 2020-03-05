@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
     before_action :authorized, only: [:show]
-    
-    def index
-        @users = User.all 
-    end
 
     def new
         @user = User.new
@@ -45,8 +41,15 @@ class UsersController < ApplicationController
 
     def feed
         @user = find_user
+        @sorts = sort_methods
+        @sort = params[:sorting]
+
+        if @sort
+            @sort_method = @sort[:method]
+        end
+
         if current_user == @user
-            @posts = @user.posts
+            @posts = Post.construct_feed(topics: @user.topics, sort: @sort_method)
         else
             redirect_to login_path
         end
@@ -56,6 +59,10 @@ class UsersController < ApplicationController
 
     def find_user
         User.find(params[:id])
+    end
+
+    def sort_methods
+        ['Popularity', 'Creation']
     end
 
     def user_params
