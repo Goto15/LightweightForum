@@ -24,4 +24,5 @@
   <div class='topics'><%= f.collection_check_boxes(:topic_ids, Topic.all, :id, :name)%></div>
   <h1><%= f.submit %></h1>
 
+  <h1><%= link_to "Back to Your Profile", user_path(@user) %></h1>
 <% end %>

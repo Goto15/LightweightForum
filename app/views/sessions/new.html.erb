@@ -1,7 +1,11 @@
 <%= form_tag sessions_path do %>
-  <%= label_tag "Username" %>
-  <%= text_field_tag :username, nil, placeholder: "username" %>
-  <%= label_tag "Password" %>
-  <%= password_field_tag :password, nil, placeholder: "password" %>
+  <div class='topics'>
+    <%= label_tag "Username" %>
+    <%= text_field_tag :username, nil, placeholder: "username" %>
+  </div>
+  <div class='topics'>
+    <%= label_tag "Password" %>
+    <%= password_field_tag :password, nil, placeholder: "password" %>
+  </div>
   <%= submit_tag "Log In" %>
 <% end %>
