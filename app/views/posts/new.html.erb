@@ -1,14 +1,15 @@
 <% if logged_in? %>
     <%= form_for @post do |f| %>
         <h1><%= f.label "Post Title" %></h1>
-        <h1><%= f.text_field :title %></h1>
+        <h1><%= f.text_field :title, style: 'width: 33%;' %></h1>
 
         <h1><%= f.label "Post Content" %></h1>
-        <h1><%= f.text_area :content%></h1>
+        <h1><%= f.text_area :content, style: 'width: 100%;', rows: '5' %></h1>
 
         <%= f.hidden_field(:user_id, value: session[:user_id]) %>
         <%= f.hidden_field(:upvotes, value: 0) %>
 
         <h1><%= f.submit %></h1>
     <% end %>
+    <h1><%= link_to 'Back to Post Feed', user_feed_path(session[:user_id])%></h1>
 <% end %>

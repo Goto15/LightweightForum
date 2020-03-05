@@ -15,9 +15,24 @@ h1 a {
     color: #232323;
 }
 
-h1 a:hover{
+h1 a:hover {
     background-color: #0073cf;
     color: #fff;
+}
+
+input[type=submit] {
+    background-color: #0073cf;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 5px;
+}
+
+input[type=submit]:hover {
+    background-color: #fff;
+    border-bottom: 2px solid #0073cf;
+    color: #0073cf;
+    padding: 3px;
 }
 
 .author {
@@ -28,12 +43,12 @@ h1 a:hover{
     text-align: center;
 }
 
-.author a{
+.author a {
     color: #0073cf;
     text-align: center;
 }
 
-.author a:hover{
+.author a:hover {
     background-color: #0073cf;
     color: #fff;
 }
@@ -44,49 +59,49 @@ h1 a:hover{
     text-align: justify;
 }
 
-.content a{
+.content a {
     color: #232323;
     text-decoration: underline;
 }
 
-.content a:hover{
+.content a:hover {
     background-color: #0073cf;
     color: #fff;
 }
 
 .comments {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Courier New', Courier, monospace;
     text-align: center;
 }
 
-.comments a{
-    color: lightslategray;
+.comments a {
+    color: grey;
     text-decoration: none;
 }
 
-.comments a:hover{
+.comments a:hover {
     background-color: #0073cf;
     color: #fff;
 }
 
-.nav-bar{
+.nav-bar {
     font-family: 'Courier New', Courier, monospace;
     max-width: 50%;
     margin: 0 auto;
     text-align: center;
 }
 
-.nav-bar a{
+.nav-bar a {
     color: #0073cf;
     text-decoration: none;
 }
 
-.nav-bar a:hover{
+.nav-bar a:hover {
     background-color: #0073cf;
     color: #fff;
 }
 
-.site-name{
+.site-name {
     color: #232323;
 }
 
@@ -98,11 +113,11 @@ h1 a:hover{
     margin-top: 10px;
 }
 
-.topics a{
+.topics a {
     color: #0073cf;
 }
 
-.topics a:hover{
+.topics a:hover {
     background-color: #0073cf;
     color: #fff;
 }

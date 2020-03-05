@@ -45,11 +45,14 @@
 <hr>
 <% if logged_in? %>
     <%= form_for @comment do |c| %>
-        <%= c.label 'Comment here: ' %>
-        <%= c.text_area :content %>
+        <div class='topics'>
+            <%= c.label 'Comment here: ' %>
+        </div>
+        <%= c.text_area :content, style: 'width: 50%;', rows: '5' %>
         <br>
         <%= c.hidden_field(:post_id, value: @post.id)%>
         <%= c.hidden_field(:user_id, value: session[:user_id])%>
-        <%= c.submit %>
+        <%= c.submit 'Post Comment' %>
     <% end %>
+    <h1><%= link_to "Back to Feed", home_path %></h1>
 <% end %>

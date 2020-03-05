@@ -1,14 +1,14 @@
 <% if logged_in? && (@post.user_id == session[:user_id]) %>
     <%= form_for @post do |f| %>
         <div><h1><%= f.label "Post Title" %></h1></div>
-        <h1><%= f.text_field :title %></h1>
+        <h1><%= f.text_field :title, style: 'width: 33%; text-align: center;' %></h1>
         <br>
         <div class='topics'>
             <div><%= f.label "Post Content" %></div>
-            <div><%= f.text_area :content %></div>
+            <div><%= f.text_area :content, style: 'width: 100%;', rows: '10' %></div>
         </div>
         <br>
-        <%= f.submit %>
+        <h1><%= f.submit %></h1>
     <% end %>
 <% else %>
     <div>
@@ -18,3 +18,4 @@
         <%= link_to "Back to post", post_path(@post) %>
     </div>
 <% end %>
+<h1><%= link_to "Back to Post", post_path(@post) %></h1>

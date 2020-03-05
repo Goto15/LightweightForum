@@ -12,7 +12,6 @@ class Post < ApplicationRecord
   after_initialize :init
 
   # Class Methods
-  # TODO: Look up dispatch table for sort function
   def self.construct_feed(topics:, sort: )
     if !sort
       sort = 'Creation'
