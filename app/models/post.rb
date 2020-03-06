@@ -51,7 +51,14 @@ class Post < ApplicationRecord
     Post.last
   end
 
-
+  def self.post_analytics
+    {
+      most_upvotes: Post.most_upvotes,
+      most_comments: Post.most_comments,
+      longest_title: Post.longest_title,
+      newest_post: Post.newest_post
+    }
+  end
 
   # Instance Methods
   def init

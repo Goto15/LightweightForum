@@ -16,6 +16,13 @@ class Comment < ApplicationRecord
     Comment.last
   end
 
+  def self.comment_analytics
+    {
+      most_upvotes: Comment.most_upvotes,
+      most_recent: Comment.most_recent
+    }
+  end
+
   def init
     self.upvotes ||= 0
   end

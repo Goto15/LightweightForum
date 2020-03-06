@@ -5,7 +5,13 @@ class Topic < ApplicationRecord
 
     validates :name, uniqueness: true, presence: true
 
-    def most_followers
+    def self.most_followers
         Topic.all.max_by { |t| t.feeds.count }
+    end
+
+    def self.topic_analytics
+        {
+            most_followers: Topic.most_followers
+        }
     end
 end

@@ -55,6 +55,13 @@ class UsersController < ApplicationController
         end
     end
 
+    def analytics
+        @users = User.user_analytics
+        @posts = Post.post_analytics
+        @comments = Comment.comment_analytics
+        @topics = Topic.topic_analytics
+    end
+
     private
 
     def find_user

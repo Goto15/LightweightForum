@@ -27,6 +27,15 @@ class User < ApplicationRecord
     def self.oldest
         User.first
     end
-    
+
+    def self.user_analytics
+        {
+            most_comments: User.most_comments,
+            most_posts: User.most_posts,
+            most_topics: User.most_topics_followed,
+            newest: User.newest,
+            oldest: User.oldest
+        }
+    end
 
 end
