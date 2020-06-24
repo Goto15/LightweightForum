@@ -1,0 +1,58 @@
+<h1><%= @post.title %></h1>
+
+<div class='author'>
+    <%= @post.user.username %>
+</div>
+
+
+<div class="topics">
+    Upvotes: <%= @post.upvotes %>
+    <% if logged_in? %>
+        <%= button_to 'Upvote', upvote_post_path(@post), method: :put %>
+    <% end %>
+</div>
+
+<div class='content'>
+    <%= @post.content %>
+</div>
+
+<div class='topics'>
+    <% @topics.each do |t| %>
+        <%= link_to t.name, topic_path(t) %>
+    <% end %>
+</div>
+
+<div class='content'>
+    <% if logged_in? && (@post.user_id == session[:user_id]) %>
+        <%= link_to "Edit your post", edit_post_path(@post) %>
+    <% end %>
+</div>
+<hr>
+
+<div class='topics'>
+    Comments
+</div>
+
+<div class='content'>
+    <% @comments.each do |c| %>
+        <%= c.content %><br>
+        <div>Upvotes: <%= c.upvotes %></div>
+        <%= button_to 'Upvote', upvote_comment_path(c), method: :put %>
+        <div class='author'><%= c.user.username %></div>
+    <% end %>
+</div>
+
+<hr>
+<% if logged_in? %>
+    <%= form_for @comment do |c| %>
+        <div class='topics'>
+            <%= c.label 'Comment here: ' %>
+        </div>
+        <%= c.text_area :content, style: 'width: 50%;', rows: '5' %>
+        <br>
+        <%= c.hidden_field(:post_id, value: @post.id)%>
+        <%= c.hidden_field(:user_id, value: session[:user_id])%>
+        <%= c.submit 'Post Comment' %>
+    <% end %>
+    <h1><%= link_to "Back to Feed", home_path %></h1>
+<% end %>

@@ -1,0 +1,28 @@
+<h1>User Stats</h1>
+
+<div class='topics'>
+    <% @users.each do |sup, user| %>
+        <%= sup %>: <%= user.username %><br>
+    <% end %>
+</div>
+
+<h1>Post Stats</h1>
+<div class='topics'>
+    <% @posts.each do |sup, post| %>
+        <%= sup %>: <%= link_to post.title, post %><br>
+    <% end %>
+</div>
+
+<h1>Comment Stats</h1>
+<div class='topics'>
+    <% @comments.each do |sup, comment| %>
+        <%= sup %>: <%= link_to comment.content, post_path(comment.post) %><br>
+    <% end %>
+</div>
+
+<h1>Topic Stats</h1>
+<div class='topics'>
+    <% @topics.each do |sup, topic| %>
+        <%= sup %>: <%= link_to topic.name, topic %><br>
+    <% end %>
+</div>

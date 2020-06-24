@@ -1,0 +1,8 @@
+<h1>List of Topics</h1>
+<ul>
+    <div class='topics'>
+    <% @topics.each do |topic| %>
+        <li><%= link_to topic.name, topic_path(topic) %></li>
+    <% end %>
+    </div>
+</ul>

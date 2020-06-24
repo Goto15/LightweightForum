@@ -1,15 +1,123 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+    margin: 0 auto;
+    max-width: 70%;
+}
+
+h1 {
+    color: #232323;
+    font-family: Helvetica, Arial, sans-serif;
+    font-style: italic;
+    margin-bottom: 7px;
+    text-align: center;
+}
+
+h1 a {
+    color: #232323;
+}
+
+h1 a:hover {
+    background-color: #0073cf;
+    color: #fff;
+}
+
+input[type=submit] {
+    background-color: #0073cf;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 5px;
+}
+
+input[type=submit]:hover {
+    background-color: #fff;
+    border-bottom: 2px solid #0073cf;
+    color: #0073cf;
+    padding: 3px;
+}
+
+.author {
+    color: #0073cf;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.author a {
+    color: #0073cf;
+    text-align: center;
+}
+
+.author a:hover {
+    background-color: #0073cf;
+    color: #fff;
+}
+
+.content {
+    font-family: Helvetica, Arial, sans-serif;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.content a {
+    color: #232323;
+    text-decoration: underline;
+}
+
+.content a:hover {
+    background-color: #0073cf;
+    color: #fff;
+}
+
+.comments {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.comments a {
+    color: grey;
+    text-decoration: none;
+}
+
+.comments a:hover {
+    background-color: #0073cf;
+    color: #fff;
+}
+
+.nav-bar {
+    font-family: 'Courier New', Courier, monospace;
+    max-width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nav-bar a {
+    color: #0073cf;
+    text-decoration: none;
+}
+
+.nav-bar a:hover {
+    background-color: #0073cf;
+    color: #fff;
+}
+
+.site-name {
+    color: #232323;
+}
+
+.topics {
+    color: #0073cf;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.topics a {
+    color: #0073cf;
+}
+
+.topics a:hover {
+    background-color: #0073cf;
+    color: #fff;
+}
